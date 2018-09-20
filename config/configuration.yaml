@@ -67,6 +67,15 @@ sun:
 
 # Weather prediction
 sensor:
+  - platform: travisci
+    api_key: !secret github_key
+    repository:
+      - home-assistant-config
+    branch:
+      - master
+    monitored_conditions:
+      - last_build_state
+      - state
   - platform: yr
     monitored_conditions:
       - temperature
@@ -154,3 +163,5 @@ notify:
     chat_id: 659192698
 
 
+shell_command:
+  git_pull: 'bash /config/git-pull.sh'  
