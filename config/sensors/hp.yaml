@@ -5,6 +5,12 @@
   monitored_variables:
     - name: Server Health
       sensor_type: server_health
+      unit_of_measurement: '°C'
+      value_template: '{{ ilo_data.temperature["01-Inlet Ambient"].currentreading[0] }}'
+    - name: CPU fanspeed
+      sensor_type: server_health
+      unit_of_measurement: '%'
+      value_template: '{{ ilo_data.fans["Fan 1"].speed[0] }}'
 
 - platform: hp_ilo
   host: 192.168.113.2
@@ -13,3 +19,9 @@
   monitored_variables:
     - name: Server Health
       sensor_type: server_health
+      unit_of_measurement: '°C'
+      value_template: '{{ ilo_data.temperature["01-Inlet Ambient"].currentreading[0] }}'
+    - name: CPU fanspeed
+      sensor_type: server_health
+      unit_of_measurement: '%'
+      value_template: '{{ ilo_data.fans["Fan 1"].speed[0] }}'
