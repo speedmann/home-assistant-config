@@ -145,4 +145,8 @@
       from: 'started'
       to: 'passed'
   action:
-    - service: shell_command.restart_hass
+    - service: shell_command.git_pull
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Neue config gepullt, restart benötigt"
