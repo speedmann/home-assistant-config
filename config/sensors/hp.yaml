@@ -2,3 +2,14 @@
   host: ilo-nas.swapoff.de
   username: Administrator
   password: !secret ilo_nas_password
+  monitored_variables:
+    - name: Server Health
+      sensor_type: server_health
+
+- platform: hp_ilo
+  host: 192.168.113.2
+  username: Administrator
+  password: !secret ilo_nas_password
+  monitored_variables:
+    - name: Server Health
+      sensor_type: server_health
