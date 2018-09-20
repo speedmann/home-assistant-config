@@ -1,0 +1,15 @@
+- platform: mqtt
+  state_topic: 'tinkerforge/bricklet/barometer/D6F/air_pressure'
+  name: Luftdruck
+  unit_of_measurement: 'hpa'
+  value_template: "{{ value_json.air_pressure/1000 }}"
+- platform: mqtt
+  state_topic: 'tinkerforge/bricklet/humidity_v2/Dgc/temperature'
+  name: Temperatur
+  unit_of_measurement: 'C'
+  value_template: "{{ value_json.temperature/100 }}"
+- platform: mqtt
+  state_topic: 'tinkerforge/bricklet/humidity_v2/Dgc/humidity'
+  name: Luftfeuchtigkeit
+  unit_of_measurement: '%'
+  value_template: "{{ value_json.humidity/100 }}"
