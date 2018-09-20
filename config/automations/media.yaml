@@ -1,0 +1,57 @@
+- alias: "Media player paused/stopped"
+  trigger:
+    - platform: state
+      entity_id: media_player.wohnzimmer
+      from: 'playing'
+      to: 'off'
+    - platform: state
+      entity_id: media_player.wohnzimmer
+      from: 'idle'
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_4
+      state: 'on'
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_5
+      state: 'on'
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_6
+      state: 'on'
+  action:
+      service: scene.turn_on
+      entity_id: scene.wohnzimmer_normal
+
+- alias: "Media player playing"
+  trigger:
+    - platform: state
+      entity_id: media_player.wohnzimmer
+      to: 'playing'
+      from: 'off'
+    - platform: state
+      entity_id: media_player.wohnzimmer
+      to: 'playing'
+      from: 'idle'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_4
+      state: 'on'
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_5
+      state: 'on'
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_6
+      state: 'on'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.wohnzimmer_gedimmt
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Dimme Licht"

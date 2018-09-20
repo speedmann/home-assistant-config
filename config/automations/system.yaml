@@ -1,0 +1,22 @@
+- alias: Update notifications
+  trigger:
+    - platform: state
+      entity_id: updater.updater
+  action:
+    service: notify.telegram_notify
+    data:
+      title: 'New Home Assistant Release'
+      message: "Home Assistant  {{ states.updater.updater.state }}  is now available."
+
+- alias: Pull config after Traivs CI Build
+  trigger:
+    - platform: state
+      entity_id: sensor.speedmannhomeassistantconfig_last_build_state
+      from: 'started'
+      to: 'passed'
+  action:
+    - service: shell_command.git_pull
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Neue config gepullt, restart benötigt"
