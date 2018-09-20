@@ -66,37 +66,7 @@ map:
 sun:
 
 # Weather prediction
-sensor:
-  - platform: travisci
-    api_key: !secret github_key
-    repository:
-      - home-assistant-config
-    branch:
-      - master
-    monitored_conditions:
-      - last_build_state
-      - state
-  - platform: yr
-    monitored_conditions:
-      - temperature
-      - symbol
-      - pressure
-      - humidity
-  - platform: mqtt
-    state_topic: 'tinkerforge/bricklet/barometer/D6F/air_pressure'
-    name: Luftdruck
-    unit_of_measurement: 'hpa'
-    value_template: "{{ value_json.air_pressure/1000 }}"
-  - platform: mqtt
-    state_topic: 'tinkerforge/bricklet/humidity_v2/Dgc/temperature'
-    name: Temperatur
-    unit_of_measurement: 'C'
-    value_template: "{{ value_json.temperature/100 }}"
-  - platform: mqtt
-    state_topic: 'tinkerforge/bricklet/humidity_v2/Dgc/humidity'
-    name: Luftfeuchtigkeit
-    unit_of_measurement: '%'
-    value_template: "{{ value_json.humidity/100 }}"
+sensor: !include sensors.yaml
 
 # Text to speech
 tts:
