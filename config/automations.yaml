@@ -141,7 +141,7 @@
 - alias: Pull config after Traivs CI Build
   trigger:
     - platform: state
-      entity_id: sensor.travis_ci_state
+      entity_id: sensor.speedmannhomeassistantconfig_last_build_state
       from: 'started'
       to: 'passed'
   action:
