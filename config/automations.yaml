@@ -1,0 +1,139 @@
+- alias: Autostart Fluxer
+  trigger:
+  - platform: homeassistant
+    event: start
+  action:
+  - service: switch.turn_on
+    entity_id: switch.flux
+
+- alias: "Media player paused/stopped"
+  trigger:
+    - platform: state
+      entity_id: media_player.wohnzimmer
+      from: 'playing'
+      to: 'off'
+    - platform: state
+      entity_id: media_player.wohnzimmer
+      from: 'idle'
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_4
+      state: 'on'
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_5
+      state: 'on'
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_6
+      state: 'on'
+  action:
+      service: scene.turn_on
+      entity_id: scene.wohnzimmer_normal
+
+- alias: "Media player playing"
+  trigger:
+    - platform: state
+      entity_id: media_player.wohnzimmer
+      to: 'playing'
+      from: 'off'
+    - platform: state
+      entity_id: media_player.wohnzimmer
+      to: 'playing'
+      from: 'idle'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_4
+      state: 'on'
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_5
+      state: 'on'
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_6
+      state: 'on'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.wohnzimmer_gedimmt
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Dimme Licht"
+
+- alias: Fernseher aus bei nicht nutzung
+  trigger:
+    - platform: state
+      entity_id: media_player.wohnzimmer
+      to: 'off'
+      for:
+        minutes: 10
+  action:
+    - service: switch.turn_off
+      entity_id: switch.fernseher
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Fernseher abgeschaltet, zu lange nicht genutzt"
+
+- alias: Fernseher aus wenn weg
+  trigger:
+    - platform: state
+      entity_id: group.sebastian
+      to: 'not_home'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.fernseher
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Fernseher abgeschaltet, nicht zuhause"
+  condition:
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_4
+      state: 'on'
+- alias: Licht aus wenn weg
+  trigger:
+    - platform: state
+      entity_id: group.sebastian
+      to: 'not_home'
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Licht abgeschaltet, nicht zuhause"
+  condition:
+    - condition: state
+      entity_id: light.tradfri_bulb_gu10_ws_400lm_4
+      state: 'on'
+- alias: Licht an wenn dunkel
+  trigger:
+    - platform: state
+      entity_id: group.sebastian
+      to: 'home'
+  action:
+    - service: light.turn_on
+      entity_id: group.all_lights
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Licht angeschaltet, weil dunkel und zuhause"
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+
+- alias: Update notifications
+  trigger:
+    - platform: state
+      entity_id: updater.updater
+  action:
+    service: notify.telegram_notify
+    data: 
+      title: 'New Home Assistant Release'
+      message: "Home Assistant  {{ states.updater.updater.state }}  is now available."

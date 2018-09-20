@@ -1,0 +1,12 @@
+- name: Wohnzimmer normal
+  entities:
+    group.wohnzimmer:
+      state: on
+      transition: 2
+      brightness_pct: 80
+- name: Wohnzimmer gedimmt
+  entities:
+    group.wohnzimmer:
+      state: on
+      transition: 2
+      brightness_pct: 10

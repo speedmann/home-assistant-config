@@ -1,0 +1,15 @@
+speedmann_9bb4fc48c827475cb5ad042c6b9e65c2:
+  hide_if_away: false
+  icon:
+  mac:
+  name: speedmann
+  picture:
+  track: true
+
+beacon_test:
+  hide_if_away: false
+  icon:
+  mac:
+  name: test
+  picture:
+  track: true

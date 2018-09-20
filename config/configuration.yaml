@@ -1,0 +1,156 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 51.20407285929176
+  longitude: 6.766530145921919
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: UTC
+  # Customization file
+  customize: !include customize.yaml
+
+# Show links to resources in log and frontend
+#introduction:
+zone:
+  - name: Home
+    latitude: 51.203907559165998
+    longitude: 6.7665701879597
+    radius: 90
+    icon: mdi:account-multiple
+
+logger:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+http:
+  # Secrets are defined in the file secrets.yaml
+  api_password: !secret http_password
+  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+  base_url: ha.tuxcall.de:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+  # Optional, allows Home Assistant developers to focus on popular components.
+  # include_used_components: true
+
+# Discover some devices automatically
+#discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+recorder:
+  db_url: !secret recorder_db_url
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+# Weather prediction
+sensor:
+  - platform: yr
+    monitored_conditions:
+      - temperature
+      - symbol
+      - pressure
+      - humidity
+  - platform: mqtt
+    state_topic: 'tinkerforge/bricklet/barometer/D6F/air_pressure'
+    name: Luftdruck
+    unit_of_measurement: 'hpa'
+    value_template: "{{ value_json.air_pressure/1000 }}"
+  - platform: mqtt
+    state_topic: 'tinkerforge/bricklet/humidity_v2/Dgc/temperature'
+    name: Temperatur
+    unit_of_measurement: 'C'
+    value_template: "{{ value_json.temperature/100 }}"
+  - platform: mqtt
+    state_topic: 'tinkerforge/bricklet/humidity_v2/Dgc/humidity'
+    name: Luftfeuchtigkeit
+    unit_of_measurement: '%'
+    value_template: "{{ value_json.humidity/100 }}"
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+group: !include groups.yaml
+automation: !include automations.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
+
+switch:
+  - platform: tplink
+    host: hs110-fernseher.swapoff.de
+    name: Fernseher
+
+  - platform: tplink
+    host: 192.168.113.102
+    name: Waschmaschine
+
+  - platform: flux
+    mode: mired
+    disable_brightness_adjust: True
+    lights:
+      - light.tradfri_bulb_gu10_ws_400lm
+      - light.tradfri_bulb_gu10_ws_400lm_2
+      - light.tradfri_bulb_gu10_ws_400lm_3
+      - light.tradfri_bulb_gu10_ws_400lm_4
+      - light.tradfri_bulb_gu10_ws_400lm_5
+      - light.tradfri_bulb_gu10_ws_400lm_6
+
+homekit:
+  auto_start: True
+  filter:
+    exclude_domains:
+      - automation
+tradfri:
+  host: GW-DCEFCAB837FB.swapoff.de
+cast:
+  media_player:
+  - host: 192.168.113.103
+
+device_tracker:
+  - platform: owntracks
+
+influxdb:
+  host: rancher.swapoff.de
+
+mqtt:
+  broker: rancher.swapoff.de
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api
+    allowed_chat_ids:
+      - 589893007
+      - 659192698
+
+notify:
+  - name: telegram_notify
+    platform: telegram
+    chat_id: 659192698
+
+
