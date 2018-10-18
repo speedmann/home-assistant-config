@@ -54,6 +54,11 @@ homekit:
   filter:
     exclude_domains:
       - automation
+    exclude_entities:
+      - sensor.hp_ilo_server_health
+      - sensor.hp_ilo_server_health_2
+      - switch.flux
+      - sensor.yr_temperature
 
 cast:
   media_player:
@@ -66,8 +71,8 @@ influxdb:
   host: 192.168.113.17
   exclude:
     entities:
-      -  sensor.hp_ilo_server_health
-      -  sensor.hp_ilo_server_health_2
+      - sensor.hp_ilo_server_health
+      - sensor.hp_ilo_server_health_2
 
 telegram_bot:
   - platform: polling
