@@ -63,7 +63,7 @@ device_tracker:
   - platform: owntracks
 
 influxdb:
-  host: rancher.swapoff.de
+  host: 192.168.113.17
 
 telegram_bot:
   - platform: polling
