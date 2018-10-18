@@ -67,7 +67,7 @@ influxdb:
   exclude:
     entities:
       -  sensor.hp_ilo_server_health
-      -  sensor.hp_ilo_server_health2
+      -  sensor.hp_ilo_server_health_2
 
 telegram_bot:
   - platform: polling
