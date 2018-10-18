@@ -79,3 +79,7 @@ notify:
 
 shell_command:
   git_pull: 'bash /config/git-pull.sh'  
+
+zha:
+  usb_path: /dev/ttyUSB0
+  database_path: /config/zigbee.db
