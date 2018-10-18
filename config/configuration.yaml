@@ -74,6 +74,8 @@ influxdb:
     entities:
       - sensor.hp_ilo_server_health
       - sensor.hp_ilo_server_health_2
+      - sensor.hp_ilo_cpu_fanspeed
+      - sensor.hp_ilo_cpu_fanspeed_2
 
 telegram_bot:
   - platform: polling
