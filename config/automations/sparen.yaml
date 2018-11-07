@@ -27,7 +27,7 @@
         message: "Fernseher abgeschaltet, nicht zuhause"
   condition:
     - condition: state
-      entity_id: light.tradfri_bulb_gu10_ws_400lm_4
+      entity_id: switch.fernseher
       state: 'on'
 
 - alias: Licht aus wenn weg
@@ -43,6 +43,11 @@
         title: '*HA Automation*'
         message: "Licht abgeschaltet, nicht zuhause"
   condition:
-    - condition: state
-      entity_id: light.tradfri_bulb_gu10_ws_400lm_4
-      state: 'on'
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: group.schlafzimmer
+        state: 'on'
+      - condition: state
+        entity_id: group.wohnzimmer
+        state: 'on'
