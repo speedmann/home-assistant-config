@@ -35,6 +35,12 @@ map:
 
 sun:
 
+camera:
+  - platform: foscam
+    ip: 192.168.100.12
+    username: speedmann
+    password: !secret foscam_password
+
 sensor: !include_dir_merge_list sensors/
 
 tts:

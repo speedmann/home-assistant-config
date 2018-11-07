@@ -18,6 +18,7 @@ default_view:
     - sensor.yr_symbol
     - sensor.yr_temperature
     - sensor.dusseldorf_volksgarten_to_solingen_hbf
+    - camera.foscam_camera
 
 switches_view:
   name: Schalter
