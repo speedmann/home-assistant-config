@@ -1,6 +1,11 @@
 - platform: flux
   mode: mired
   disable_brightness_adjust: True
+  start_time: '06:00'
+  stop_time: '22:00'
+  start_colortemp: 4000
+  sunset_colortemp: 3000
+  stop_colortemp: 1900
   lights:
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_febffce9_1
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec06a91_1
