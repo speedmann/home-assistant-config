@@ -75,7 +75,9 @@ device_tracker:
   - platform: owntracks
 
 influxdb:
-  host: 192.168.113.17
+  host: localhost
+  username: ha
+  password: !secret influx_password
   exclude:
     entities:
       - sensor.hp_ilo_server_health
