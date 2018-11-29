@@ -35,6 +35,9 @@ map:
 
 sun:
 
+mqtt:
+  broker: localhost
+
 camera:
   - platform: foscam
     ip: 192.168.100.12
