@@ -1,0 +1,14 @@
+- alias: Set Foscam to Away Mode when I leave home
+  trigger:
+    platform: state
+    entity_id: group.sebastian
+    from: 'home'
+  action:
+    service: script.foscam_on
+- alias: Set Foscam to Home Mode when I arrive Home
+  trigger:
+    platform: state
+    entity_id: group.sebastian
+    to: 'home'
+  action:
+    service: script.foscam_off
