@@ -37,7 +37,7 @@
       value_template: '{{ state.attributes.temperature }}'
       above: 26
       for:
-        seconds: 10
+        hours: 1
   action:
     - service: climate.set_temperature
       data:

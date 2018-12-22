@@ -10,3 +10,7 @@
       state: on
       transition: 2
       brightness_pct: 10
+- name: Baden
+  entities:
+    climate.meq1884545:
+      temperature: 30
