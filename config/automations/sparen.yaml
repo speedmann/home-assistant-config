@@ -100,3 +100,6 @@
       data:
         title: '*HA Automation*'
         message: "Urlaubsmodus aus"
+  condition:
+    - condition: template
+      value_template: "{{ is_state_attr('climate.meq1884545', 'operation_mode', 'manual') }}"
