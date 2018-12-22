@@ -19,6 +19,8 @@ default_view:
     - sensor.yr_temperature
     - sensor.dusseldorf_volksgarten_to_solingen_hbf
     - camera.foscam_camera
+    - climate.000393c994ddf2
+    - climate.meq1884545
 
 switches_view:
   name: Schalter
