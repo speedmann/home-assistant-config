@@ -124,3 +124,13 @@ shell_command:
 zha:
   usb_path: /dev/ttyUSB0
   database_path: /config/zigbee.db
+
+homematic:
+  interfaces:
+    rf:
+      host: 192.168.113.104
+      resolvenames: xml
+    ip:
+      host: 192.168.113.104
+      port: 2010
+      resolvenames: xml
