@@ -96,10 +96,6 @@
       data:
         entity_id: group.heizung
         operation_mode: auto
-    - service: climate.set_temperature
-      data:
-        entity_id: group.heizung
-        temperature: 21
     - service: notify.telegram_notify
       data:
         title: '*HA Automation*'
