@@ -58,11 +58,7 @@
   action:
     - service: climate.set_temperature
       data:
-        entity_id: climate.000393c994ddf2
-        temperature: 17
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.meq1884545
+        entity_id: group.heizung
         temperature: 17
     - service: notify.telegram_notify
       data:
@@ -79,19 +75,11 @@
   action:
     - service: climate.set_operation_mode
       data:
-        entity_id: climate.000393c994ddf2
-        operation_mode: manual
-    - service: climate.set_operation_mode
-      data:
-        entity_id: climate.meq1884545
+        entity_id: group.heizung
         operation_mode: manual
     - service: climate.set_temperature
       data:
-        entity_id: climate.000393c994ddf2
-        temperature: 10
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.meq1884545
+        entity_id: group.heizung
         temperature: 10
     - service: notify.telegram_notify
       data:
@@ -106,19 +94,11 @@
   action:
     - service: climate.set_operation_mode
       data:
-        entity_id: climate.000393c994ddf2
-        operation_mode: auto
-    - service: climate.set_operation_mode
-      data:
-        entity_id: climate.meq1884545
+        entity_id: group.heizung
         operation_mode: auto
     - service: climate.set_temperature
       data:
-        entity_id: climate.000393c994ddf2
-        temperature: 21
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.meq1884545
+        entity_id: group.heizung
         temperature: 21
     - service: notify.telegram_notify
       data:
