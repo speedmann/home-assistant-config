@@ -30,24 +30,20 @@
       entity_id: switch.fernseher
       state: 'on'
 
-- alias: Licht aus wenn weg
+- alias: Bad Heizung aus
   trigger:
-    - platform: state
-      entity_id: group.sebastian
-      to: 'not_home'
+    - platform: numeric_state
+      entity_id: climate.meq1884545
+      value_template: '{{ state.attributes.temperature }}'
+      above: 26
+      for:
+        seconds: 10
   action:
-    - service: light.turn_off
-      entity_id: group.all_lights
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.meq1884545
+        temperature: 17
     - service: notify.telegram_notify
       data:
         title: '*HA Automation*'
-        message: "Licht abgeschaltet, nicht zuhause"
-  condition:
-    condition: or
-    conditions:
-      - condition: state
-        entity_id: group.schlafzimmer
-        state: 'on'
-      - condition: state
-        entity_id: group.wohnzimmer
-        state: 'on'
+        message: "Bad Heizung aus"
