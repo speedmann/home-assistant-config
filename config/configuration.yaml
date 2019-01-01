@@ -75,7 +75,7 @@ script:
     sequence:
       - service: switch.turn_on
         data:
-          entity_id: switch.fernseher
+          entity_id: switch.unterhaltung
       - wait_template: "{{ not is_state('media_player.wohnzimmer','unavailable') }}"
       - service: remote.turn_on
         data:
@@ -88,7 +88,7 @@ script:
     sequence:
       - service: switch.turn_on
         data:
-          entity_id: switch.fernseher
+          entity_id: switch.unterhaltung
       - wait_template: "{{ not is_state('media_player.wohnzimmer','unavailable') }}"
       - service: remote.turn_on
         data:

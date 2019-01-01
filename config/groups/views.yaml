@@ -12,7 +12,7 @@ default_view:
     - sensor.temperatur
     - sensor.luftdruck
     - sensor.luftfeuchtigkeit
-    - switch.fernseher
+    - switch.unterhaltung
     - switch.waschmaschine
     - media_player.wohnzimmer
     - sensor.yr_symbol
@@ -21,6 +21,7 @@ default_view:
     - camera.foscam_camera
     - climate.000393c994ddf2
     - climate.meq1884545
+    - remote.wohnzimmer
 
 switches_view:
   name: Schalter

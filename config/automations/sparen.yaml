@@ -7,7 +7,7 @@
         minutes: 10
   action:
     - service: switch.turn_off
-      entity_id: switch.fernseher
+      entity_id: switch.unterhaltung
     - service: notify.telegram_notify
       data:
         title: '*HA Automation*'
@@ -20,14 +20,14 @@
       to: 'not_home'
   action:
     - service: switch.turn_off
-      entity_id: switch.fernseher
+      entity_id: switch.unterhaltung
     - service: notify.telegram_notify
       data:
         title: '*HA Automation*'
         message: "Fernseher abgeschaltet, nicht zuhause"
   condition:
     - condition: state
-      entity_id: switch.fernseher
+      entity_id: switch.unterhaltung
       state: 'on'
 
 - alias: Bad Heizung aus

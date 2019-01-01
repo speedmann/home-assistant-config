@@ -1,6 +1,6 @@
 - platform: tplink
   host: hs110-fernseher.iot.swapoff.de
-  name: Fernseher
+  name: Unterhaltung
 
 - platform: tplink
   host: hs110-waschmaschine.iot.swapoff.de
