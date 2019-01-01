@@ -55,7 +55,6 @@ zone: !include_dir_merge_list zones/
 group: !include_dir_merge_named groups/
 automation: !include_dir_merge_list automations/
 scene: !include_dir_merge_list scenes/
-#script: !include_dir_merge_list scripts/
 script:
   foscam_off:
     sequence:
@@ -72,6 +71,18 @@ script:
     - service: switch.turn_on
       data:
         entity_id: switch.foscam_motion
+  fernsehen_remote:
+    sequence:
+      service: remote.turn_on
+      data:
+        entity_id: remote.wohnzimmer
+        activity: "Watch TV"
+  switch_remote:
+    sequence:
+      service: remote.turn_on
+      data:
+        entity_id: remote.wohnzimmer
+        activity: "Switch"
 
 switch: !include_dir_merge_list switches/
 

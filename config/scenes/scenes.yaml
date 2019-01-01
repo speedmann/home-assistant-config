@@ -8,7 +8,7 @@
   entities:
     group.wohnzimmer:
       state: on
-      transition: 2
+      transition: 9
       brightness_pct: 10
 - name: Baden
   entities:
