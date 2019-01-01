@@ -80,6 +80,10 @@ script:
       - service: remote.turn_on
         data:
           entity_id: remote.wohnzimmer
+          activity: -1
+      - service: remote.turn_on
+        data:
+          entity_id: remote.wohnzimmer
           activity: "Watch TV"
       - service: automation.turn_on
         data:
@@ -90,6 +94,10 @@ script:
         data:
           entity_id: switch.unterhaltung
       - wait_template: "{{ not is_state('media_player.wohnzimmer','unavailable') }}"
+      - service: remote.turn_on
+        data:
+          entity_id: remote.wohnzimmer
+          activity: -1
       - service: remote.turn_on
         data:
           entity_id: remote.wohnzimmer
