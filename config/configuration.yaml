@@ -81,6 +81,9 @@ script:
         data:
           entity_id: remote.wohnzimmer
           activity: "Watch TV"
+      - service: homeassistant.turn_on
+        data:
+          entitiy_id: automation.fernseher_aus_bei_nicht_nutzung
   switch_remote:
     sequence:
       - service: switch.turn_on
@@ -91,6 +94,15 @@ script:
         data:
           entity_id: remote.wohnzimmer
           activity: "Switch"
+      - service: homeassistant.turn_off
+        data:
+          entitiy_id: automation.fernseher_aus_bei_nicht_nutzung
+      - condition: state
+        entity_id: group.wohnzimmer
+        state: 'on'
+      - service: homeassistant.turn_on
+        data:
+          entitiy_id: scene.wohnzimmer_gedimmt
 
 switch: !include_dir_merge_list switches/
 
