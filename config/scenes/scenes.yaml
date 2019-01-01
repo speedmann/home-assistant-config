@@ -14,3 +14,9 @@
   entities:
     climate.meq1884545:
       temperature: 30
+- name: Fernsehen
+  entities:
+    script.fernsehen_remote: True
+- name: Switch
+  entities:
+    script.switch_remote: True

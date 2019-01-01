@@ -134,3 +134,7 @@ homematic:
       host: 192.168.113.104
       port: 2010
       resolvenames: xml
+remote:
+  - platform: harmony
+    name: Wohnzimmer
+    host: 192.168.113.40 #HarmonyHub.swapoff.de

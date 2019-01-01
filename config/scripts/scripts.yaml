@@ -1,1 +1,12 @@
-
+- fernsehen_remote:
+  sequence:
+    service: remote.turn_on
+    data:
+      entity_id: remote.wohnzimmer
+      activity: "Watch TV"
+- switch_remote:
+  sequence:
+    service: remote.turn_on
+    data:
+      entity_id: remote.wohnzimmer
+      activity: "Switch"
