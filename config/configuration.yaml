@@ -38,12 +38,6 @@ sun:
 mqtt:
   broker: localhost
 
-camera:
-  - platform: foscam
-    ip: 192.168.100.12
-    username: speedmann
-    password: !secret foscam_password
-
 sensor: !include_dir_merge_list sensors/
 
 tts:
@@ -56,21 +50,6 @@ group: !include_dir_merge_named groups/
 automation: !include_dir_merge_list automations/
 scene: !include_dir_merge_list scenes/
 script:
-  foscam_off:
-    sequence:
-    - service: switch.turn_off
-      data:
-        entity_id: switch.foscam_motion
-    - service: shell_command.foscam_turn_off
-  foscam_on:
-    sequence:
-    - service: switch.turn_off
-      data:
-        entity_id: switch.foscam_motion
-    - service: shell_command.foscam_turn_on
-    - service: switch.turn_on
-      data:
-        entity_id: switch.foscam_motion
   fernsehen_remote:
     sequence:
       - service: switch.turn_on
@@ -149,8 +128,6 @@ notify:
 
 shell_command:
   git_pull: 'bash /config/git-pull.sh'  
-  foscam_turn_off: !secret foscam_turn_off
-  foscam_turn_on: !secret foscam_turn_on
 
 zha:
   usb_path: /dev/ttyUSB0
