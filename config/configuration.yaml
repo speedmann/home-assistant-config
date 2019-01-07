@@ -50,39 +50,6 @@ group: !include_dir_merge_named groups/
 automation: !include_dir_merge_list automations/
 scene: !include_dir_merge_list scenes/
 script:
-  fernsehen_remote:
-    sequence:
-      - service: switch.turn_on
-        data:
-          entity_id: switch.unterhaltung
-      - wait_template: "{{ not is_state('media_player.wohnzimmer','unavailable') }}"
-      - service: remote.turn_on
-        data:
-          entity_id: remote.wohnzimmer
-          activity: "Watch TV"
-      - service: automation.turn_on
-        data:
-          entity_id: automation.fernseher_aus_bei_nicht_nutzung
-  switch_remote:
-    sequence:
-      - service: switch.turn_on
-        data:
-          entity_id: switch.unterhaltung
-      - wait_template: "{{ not is_state('media_player.wohnzimmer','unavailable') }}"
-      - service: remote.turn_on
-        data:
-          entity_id: remote.wohnzimmer
-          activity: "Switch"
-      - service: automation.turn_off
-        data:
-          entity_id: automation.fernseher_aus_bei_nicht_nutzung
-      - condition: state
-        entity_id: group.wohnzimmer
-        state: 'on'
-      - service: scene.turn_on
-        data:
-          entity_id: scene.wohnzimmer_gedimmt
-
 switch: !include_dir_merge_list switches/
 
 homekit:

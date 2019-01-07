@@ -12,6 +12,7 @@ default_view:
     - sun.sun
     - sensor.yr_symbol
     - sensor.yr_temperature
+    - binary_sensor.f_haus
 
 switches_view:
   name: Schalter

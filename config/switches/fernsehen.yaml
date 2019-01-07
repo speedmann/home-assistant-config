@@ -1,0 +1,41 @@
+- platform: template
+  switches:
+    fernsehen:
+      friendly_name: Fernsehen
+      value_template: "{{ is_state_attr('remote.wohnzimmer', 'current_activity', 'Watch TV') }}"
+      turn_on:
+        service: remote.turn_on
+        data:
+          entity_id: remote.wohnzimmer
+          activity: "Watch TV"
+      turn_off:
+        service: remote.turn_on
+        data:
+          entity_id: remote.wohnzimmer
+          activity: "-1"
+    switch:
+      friendly_name: Switch
+      value_template: "{{ is_state_attr('remote.wohnzimmer', 'current_activity', 'Switch') }}"
+      turn_on:
+        service: remote.turn_on
+        data:
+          entity_id: remote.wohnzimmer
+          activity: "Switch"
+      turn_off:
+        service: remote.turn_on
+        data:
+          entity_id: remote.wohnzimmer
+          activity: "-1"
+    xbox:
+      friendly_name: Xbox
+      value_template: "{{ is_state_attr('remote.wohnzimmer', 'current_activity', 'Xbox') }}"
+      turn_on:
+        service: remote.turn_on
+        data:
+          entity_id: remote.wohnzimmer
+          activity: "Xbox"
+      turn_off:
+        service: remote.turn_on
+        data:
+          entity_id: remote.wohnzimmer
+          activity: "-1"
