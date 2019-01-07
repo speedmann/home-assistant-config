@@ -1,0 +1,20 @@
+- alias: Tuer auf
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.f_haus
+      to: 'on'
+  action:
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Tür offen"
+- alias: Tuer zu
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.f_haus
+      to: 'off'
+  action:
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Tür zu"

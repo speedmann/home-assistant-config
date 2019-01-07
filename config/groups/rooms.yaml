@@ -3,8 +3,19 @@ schlafzimmer:
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_febffce9_1
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec06a91_1
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec36883_1
+    - climate.t_schlafzimmer
 wohnzimmer:
   entities:
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec20325_1
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec301bb_1
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fee4553f_1
+    - climate.t_wohnzimmer
+    - binary_sensor.f_wohnzimmer
+    - switch.unterhaltung
+    - media_player.wohnzimmer
+    - remote.wohnzimmer
+kueche:
+    - climate.t_kueche
+    - switch.waschmaschine
+bad:
+    - climate.t_bad

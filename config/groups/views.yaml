@@ -5,23 +5,12 @@ default_view:
     - group.schlafzimmer
     - group.wohnzimmer
     - group.sebastian
-    - device_tracker.apple_watchvonsebastian
-    - device_tracker.iphonevebastian
-    - device_tracker.iphonevonsebastiancc
+    - group.kueche
+    - group.bad
+    - group.heizung
     - sun.sun
-    - sensor.temperatur
-    - sensor.luftdruck
-    - sensor.luftfeuchtigkeit
-    - switch.unterhaltung
-    - switch.waschmaschine
-    - media_player.wohnzimmer
     - sensor.yr_symbol
     - sensor.yr_temperature
-    - sensor.dusseldorf_volksgarten_to_solingen_hbf
-    - camera.foscam_camera
-    - climate.000393c994ddf2
-    - climate.meq1884545
-    - remote.wohnzimmer
 
 switches_view:
   name: Schalter

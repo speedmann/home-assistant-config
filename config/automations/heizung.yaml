@@ -1,0 +1,73 @@
+- alias: Bad Heizung aus
+  trigger:
+    - platform: numeric_state
+      entity_id: climate.t_bad
+      value_template: '{{ state.attributes.temperature }}'
+      above: 26
+      for:
+        hours: 1
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.t_bad
+        temperature: 17
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Bad Heizung aus"
+
+- alias: Heizung aus wenn weg
+  trigger:
+    - platform: state
+      entity_id: group.sebastian
+      to: 'not_home'
+      for:
+        minutes: 10
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: group.heizung
+        temperature: 17
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Heizung aus, weg"
+
+- alias: Heizung Urlaubsmodus an
+  trigger:
+    - platform: state
+      entity_id: group.sebastian
+      to: 'not_home'
+      for:
+        hours: 24
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: group.heizung
+        operation_mode: manual
+    - service: climate.set_temperature
+      data:
+        entity_id: group.heizung
+        temperature: 10
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Urlaubsmodus an"
+
+- alias: Heizung Urlaubsmodus aus
+  trigger:
+    - platform: state
+      entity_id: group.sebastian
+      to: 'home'
+  action:
+    - service: climate.set_operation_mode
+      data:
+        entity_id: group.heizung
+        operation_mode: auto
+    - service: notify.telegram_notify
+      data:
+        title: '*HA Automation*'
+        message: "Urlaubsmodus aus"
+  condition:
+    - condition: template
+      value_template: "{{ is_state_attr('climate.t_bad', 'operation_mode', 'manual') }}"
