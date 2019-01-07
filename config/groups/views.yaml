@@ -4,6 +4,7 @@ default_view:
   entities:
     - group.schlafzimmer
     - group.wohnzimmer
+    - group.wohnzimmer_geräte
     - group.sebastian
     - group.kueche
     - group.bad

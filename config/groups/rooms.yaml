@@ -1,21 +1,30 @@
 schlafzimmer:
+  name: Schlafzimmer
   entities:
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_febffce9_1
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec06a91_1
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec36883_1
     - climate.t_schlafzimmer
 wohnzimmer:
+  name: Wohnzimmer Licht
   entities:
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec20325_1
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec301bb_1
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fee4553f_1
-    - climate.t_wohnzimmer
-    - binary_sensor.f_wohnzimmer
+wohnzimmer_geraete:
+  name: Wohnzimmer
+  entities:
     - switch.unterhaltung
     - media_player.wohnzimmer
     - remote.wohnzimmer
+    - climate.t_wohnzimmer
+    - binary_sensor.f_wohnzimmer
 kueche:
+  name: Küche
+  entities:
     - climate.t_kueche
     - switch.waschmaschine
 bad:
+  name: Bad
+  entities:
     - climate.t_bad
