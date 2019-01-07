@@ -5,6 +5,9 @@ schlafzimmer:
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec06a91_1
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec36883_1
     - climate.t_schlafzimmer
+    - sensor.luftdruck_schlafzimmer
+    - sensor.luftfeuchtigkeit_schlafzimmer
+    - sensor.temperatur_schlafzimmer
 wohnzimmer:
   name: Wohnzimmer Licht
   entities:
@@ -19,12 +22,21 @@ wohnzimmer_geraete:
     - remote.wohnzimmer
     - climate.t_wohnzimmer
     - binary_sensor.f_wohnzimmer
+    - sensor.luftdruck_wohnzimmer
+    - sensor.luftfeuchtigkeit_wohnzimmer
+    - sensor.temperatur_wohnzimmer
 kueche:
   name: Küche
   entities:
     - climate.t_kueche
     - switch.waschmaschine
+    - sensor.luftdruck_küche
+    - sensor.luftfeuchtigkeit_küche
+    - sensor.temperatur_küche
 bad:
   name: Bad
   entities:
     - climate.t_bad
+    - sensor.luftdruck_bad
+    - sensor.luftfeuchtigkeit_bad
+    - sensor.temperatur_bad
