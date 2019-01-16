@@ -13,6 +13,8 @@ homeassistant:
   # Customization file
   customize: !include customize.yaml
 
+updater:
+  reporting: false
 logger:
   default: info
 
@@ -66,6 +68,7 @@ homekit:
 cast:
   media_player:
   - host: 192.168.113.18
+  - host: 192.168.113.43
 
 device_tracker:
   - platform: owntracks
