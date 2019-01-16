@@ -15,8 +15,12 @@ homeassistant:
 
 updater:
   reporting: false
+
 logger:
   default: info
+
+device_sun_light_trigger:
+  device_group: group.sebastian
 
 frontend:
 
