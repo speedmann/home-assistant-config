@@ -9,6 +9,7 @@ default_view:
     - group.kueche
     - group.bad
     - group.heizung
+    - group.flur
     - sun.sun
     - sensor.yr_symbol
     - sensor.yr_temperature
