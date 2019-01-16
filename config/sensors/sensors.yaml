@@ -1,3 +1,8 @@
+- platform: iperf3
+  host: iperf.he.net
+  monitored_conditions:
+    - download
+    - upload
 - platform: travisci
   api_key: !secret github_key
   repository:

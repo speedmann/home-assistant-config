@@ -1,3 +1,8 @@
+flur:
+  name: Flur
+  entities:
+    - light.philips_lct015_04163ef5_11
+    - binary_sensor.r_flur
 schlafzimmer:
   name: Schlafzimmer
   entities:
@@ -8,6 +13,7 @@ schlafzimmer:
     - sensor.luftdruck_schlafzimmer
     - sensor.luftfeuchtigkeit_schlafzimmer
     - sensor.temperatur_schlafzimmer
+    - binary_sensor.r_schlafzimmer
 wohnzimmer:
   name: Wohnzimmer Licht
   entities:
@@ -25,6 +31,8 @@ wohnzimmer_geraete:
     - sensor.luftdruck_wohnzimmer
     - sensor.luftfeuchtigkeit_wohnzimmer
     - sensor.temperatur_wohnzimmer
+    - binary_sensor.r_wohnzimmer
+    - media_player.panasonic_viera_tv
 kueche:
   name: Küche
   entities:

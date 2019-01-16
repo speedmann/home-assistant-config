@@ -74,6 +74,8 @@ influxdb:
   host: localhost
   username: ha
   password: !secret influx_password
+  tags_attributes:
+    - friendly_name
   exclude:
     entities:
       - sensor.hp_ilo_server_health
@@ -109,7 +111,21 @@ homematic:
       host: 192.168.113.104
       port: 2010
       resolvenames: xml
+
 remote:
   - platform: harmony
     name: Wohnzimmer
     host: 192.168.113.40 #HarmonyHub.swapoff.de
+
+google_assistant:
+  project_id: !secret google_project
+  api_key: !secret google_api
+  expose_by_default: True
+  exposed_domains:
+    - switch
+    - light
+    - climate
+
+media_player:
+  - platform: panasonic_viera
+    host: 192.168.113.42

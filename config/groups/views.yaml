@@ -13,7 +13,13 @@ default_view:
     - sensor.yr_symbol
     - sensor.yr_temperature
     - binary_sensor.f_haus
+    - sensor.download_iperf_he_net
 
+all_view:
+  name: Alles
+  view: yes
+  entities:
+    -  group.all_devices
 switches_view:
   name: Schalter
   view: yes
