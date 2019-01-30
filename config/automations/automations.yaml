@@ -49,3 +49,22 @@
       data_template:
         entity_id: group.all_lights
         brightness: "{{ state_attr('binary_sensor.zha_04f21344_1','level')  }}"
+
+- alias: 'color loop aus'
+  trigger:
+    platform: state
+    entity_id: light.flur_licht
+    to: 'off'
+  action:
+    - service: script.turn_off
+      entity_id: script.flur_an
+    - service: script.turn_off
+      entity_id: script.flur_loop
+- alias: 'color loop an'
+  trigger:
+    platform: state
+    entity_id: light.flur_licht
+    to: 'on'
+  action:
+    - service: script.turn_on
+      entity_id: script.flur_an

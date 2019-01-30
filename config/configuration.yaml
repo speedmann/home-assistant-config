@@ -63,7 +63,6 @@ zone: !include_dir_merge_list zones/
 group: !include_dir_merge_named groups/
 automation: !include_dir_merge_list automations/
 scene: !include_dir_merge_list scenes/
-script:
 switch: !include_dir_merge_list switches/
 
 homekit:
@@ -174,3 +173,24 @@ light:
 lovelace:
   mode: yaml
 
+script:
+  flur_an:
+    alias: Flur an
+    sequence:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.flur_licht
+          rgb_color: ["{{ range(0,255) | random }}","{{ range(0,255) | random }}","{{ range(0,255) | random }}"]
+          transition: 60
+      - service: script.turn_on
+        data:
+          entity_id: script.flur_loop
+  flur_loop:
+    sequence:
+      - delay:
+          # time for flash light off
+          seconds: 61
+      - alias: loop_room1
+        service: script.turn_on
+        data:
+          entity_id: script.flur_an
