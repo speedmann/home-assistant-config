@@ -29,7 +29,9 @@
       to: 'on'
   action:
     - service: light.turn_on
-      entity_id: group.all_lights
+      data_template:
+        entity_id: group.all_lights
+        brightness: "{{ state_attr('binary_sensor.zha_04f21344_1','level')  }}"
 - alias: Fernbedienung aus
   trigger:
     - platform: state
@@ -38,3 +40,12 @@
   action:
     - service: light.turn_off
       entity_id: group.all_lights
+- alias: Fernbedienung hell
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.zha_04f21344_1
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: group.all_lights
+        brightness: "{{ state_attr('binary_sensor.zha_04f21344_1','level')  }}"
