@@ -1,21 +1,5 @@
-heizung:
-  name: Heizung
-  entities:
-    - climate.t_schlafzimmer
-    - climate.t_wohnzimmer
-    - climate.t_kueche
-    - climate.t_bad
-
-licht:
-  name: Licht
-  entities:
-    - group.wohnzimmer_licht
-    - group.schlafzimmer_licht
-    - group.flur_licht
-    - group.kueche_licht
-
 flur:
-  name: Licht
+  name: Flur
   entities:
     - group.flur_sensoren
     - group.flur_licht
@@ -25,46 +9,36 @@ wohnzimmer:
   name: Wohnzimmer
   entities:
     - group.wohnzimmer_sensoren
-    - group.fwohnzimmer_licht
+    - light.fwohnzimmer_licht
     - group.wohnzimmer_geraete
 
 schlafzimmer:
   name: Schlafzimmer
   entities:
     - group.schlafzimmer_sensoren
-    - group.schlafzimmer_licht
+    - light.schlafzimmer_licht
     - group.schlafzimmer_geraete
 
 bad:
   name: Bad
   entities:
     - group.bad_sensoren
-    - group.bad_licht
+    - licht.bad_licht
     - group.bad_geraete
 
 kueche:
   name: Küche
   entities:
     - group.kueche_sensoren
-    - group.kueche_licht
+    - licht.kueche_licht
     - group.kueche_geraete
 
-flur_licht:
-  name: Flur Licht
-  entities:
-    - light.philips_lct015_04163ef5_11
 flur_sensoren:
   name: Flur Sensoren
   entities:
     - binary_sensor.r_flur
 flur_geraete:
 
-schlafzimmer_licht:
-  name: Schlafzimmer Licht
-  entities:
-    - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_febffce9_1
-    - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec06a91_1
-    - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec36883_1
 schlafzimmer_sensoren:
   name: Schlafzimmer Geräte
   entities:
@@ -77,12 +51,6 @@ schlafzimmer_geraete:
   entities:
     - media_player.schlafzimmer
 
-wohnzimmer_licht:
-  name: Wohnzimmer Licht
-  entities:
-    - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec20325_1
-    - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec301bb_1
-    - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fee4553f_1
 wohnzimmer_geraete:
   name: Wohnzimmer
   entities:
@@ -99,10 +67,6 @@ wohnzimmer_sensoren:
     - sensor.temperatur_wohnzimmer
     - binary_sensor.r_wohnzimmer
 
-kueche_licht:
-  name: Küche Licht
-  entities:
-    - light.philips_lst002_04499287_11
 kueche_geraete:
   name: Küche Geräte
   entities:
@@ -115,7 +79,6 @@ kueche_sensoren:
     - sensor.temperatur_kueche
 
 bad_geraete:
-bad_licht:
 bad_sensoren:
   name: Bad Sensoren
   entities:

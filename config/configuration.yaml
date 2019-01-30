@@ -144,3 +144,33 @@ google_assistant:
 media_player:
   - platform: panasonic_viera
     host: 192.168.113.42
+
+light:
+  - platform: group
+    name: Wohnzimmer Licht
+    entities:
+      - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec20325_1
+      - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec301bb_1
+      - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fee4553f_1
+  - platform: group
+    name: Schlafzimmer Licht
+    entities:
+      - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_febffce9_1
+      - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec06a91_1
+      - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec36883_1
+  - platform: group
+    name: Flur Licht
+    entities:
+      - light.philips_lct015_04163ef5_11
+#  - platform: group
+#    name: Bad Licht
+#    entities:
+  - platform: group
+    name: Küche Licht
+    entities:
+      - light.philips_lst002_04499287_11
+
+
+lovelace:
+  mode: yaml
+
