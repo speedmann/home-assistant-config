@@ -1,0 +1,131 @@
+views:
+    # View tab title.
+  - title: Übersicht
+    cards:
+      - type: vertical-stack
+        cards:
+        - type: thermostat
+          entity: climate.t_wohnzimmer
+        - type: thermostat
+          entity: climate.t_schlafzimmer
+      - type: vertical-stack
+        cards:
+        - type: thermostat
+          entity: climate.t_bad
+        - type: thermostat
+          entity: climate.t_kueche
+      - type: vertical-stack
+        cards:
+        - type: iframe
+          url: https://grafana.swapoff.de/d-solo/0ZcA2Ixik/home-assistant?refresh=10s&orgId=1&panelId=5&from=1548802800000&to=1548874552410&theme=light
+        - type: iframe
+          url: https://grafana.swapoff.de/d-solo/0ZcA2Ixik/home-assistant?refresh=10s&orgId=1&panelId=1&from=1548802800000&to=1548876684098&theme=light
+        - type: iframe
+          url: https://grafana.swapoff.de/d-solo/0ZcA2Ixik/home-assistant?refresh=10s&orgId=1&panelId=4&from=1548802800000&to=1548876713933&theme=light
+      - type: entity-filter
+        entities:
+          - light.wohnzimmer_licht
+          - light.schlafzimmer_licht
+          - light.flur_licht
+          - light.kuche_licht
+        state_filter:
+          - "on"
+        show_empty: false
+      - type: entity-filter
+        entities:
+          - switch.fernsehen
+          - switch.unterhaltung
+          - switch.switch
+          - switch.xbox
+          - switch.chromecast
+          - switch.waschmaschine
+        state_filter:
+          - "on"
+        show_empty: false
+      - type: entity-filter
+        entities:
+          - binary_sensor.f_wohnzimmer
+          - binary_sensor.f_schlafzimmer
+          - binary_sensor.r_wohnzimmer
+          - binary_sensor.r_flur
+          - binary_sensor.r_schlafzimmer
+        state_filter:
+          - "on"
+        show_empty: false
+
+  - title: Wohnzimmer
+    cards:
+      - type: light
+        entity:  light.wohnzimmer_licht
+      - type: entities
+        entities:
+          - switch.unterhaltung
+          - switch.fernsehen
+          - switch.xbox
+          - switch.switch
+          - switch.chromecast
+      - type: thermostat
+        entity: climate.t_wohnzimmer
+      - type: vertical-stack
+        cards:
+        - type: media-control
+          entity: media_player.wohnzimmer
+        - type: media-control
+          entity: media_player.panasonic_viera_tv
+      - type: entities
+        entities:
+          - binary_sensor.r_wohnzimmer
+          - binary_sensor.f_wohnzimmer
+          - sensor.temperatur_wohnzimmer
+          - sensor.luftfeuchtigkeit_wohnzimmer
+          - sensor.luftdruck_wohnzimmer
+
+  - title: Schlafzimmer
+    cards:
+      - type: light
+        entity:  light.schlafzimmer_licht
+      - type: media-control
+        entity: media_player.schlafzimmer
+      - type: thermostat
+        entity: climate.t_schlafzimmer
+      - type: entities
+        entities:
+          - binary_sensor.r_schlafzimmer
+          - binary_sensor.f_schlafzimmer
+          - sensor.temperatur_schlafzimmer
+          - sensor.luftfeuchtigkeit_schlafzimmer
+          - sensor.luftdruck_schlafzimmer
+  - title: Flur
+    cards:
+      - type: light
+        entity:  light.flur_licht
+      - type: entities
+        entities:
+          - binary_sensor.r_flur
+          - binary_sensor.f_haus
+          - sensor.temperatur_flur
+          - sensor.luftfeuchtigkeit_flur
+          - sensor.luftdruck_flur
+  - title: Küche
+    cards:
+      - type: light
+        entity:  light.kuche_licht
+      - type: thermostat
+        entity: climate.t_kueche
+      - type: entities
+        entities:
+          - switch.waschmaschine
+      - type: entities
+        entities:
+          - sensor.temperatur_kueche
+          - sensor.luftfeuchtigkeit_kueche
+          - sensor.luftdruck_kueche
+  - title: Bad
+    cards:
+      - type: thermostat
+        entity: climate.t_bad
+      - type: entities
+        entities:
+          - sensor.temperatur_bad
+          - sensor.luftfeuchtigkeit_bad
+          - sensor.luftdruck_bad
