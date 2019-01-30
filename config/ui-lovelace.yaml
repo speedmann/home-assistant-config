@@ -1,18 +1,21 @@
+resources:
+  - url: /local/simple-custom:simple-thermostat.min.js?v=1
+    type: module
 views:
     # View tab title.
   - title: Übersicht
     cards:
       - type: vertical-stack
         cards:
-        - type: thermostat
+        - type: custom:simple-thermosta
           entity: climate.t_wohnzimmer
-        - type: thermostat
+        - type: custom:simple-thermosta
           entity: climate.t_schlafzimmer
       - type: vertical-stack
         cards:
-        - type: thermostat
+        - type: custom:simple-thermosta
           entity: climate.t_bad
-        - type: thermostat
+        - type: custom:simple-thermosta
           entity: climate.t_kueche
       - type: vertical-stack
         cards:
@@ -64,7 +67,7 @@ views:
           - switch.xbox
           - switch.switch
           - switch.chromecast
-      - type: thermostat
+      - type: custom:simple-thermosta
         entity: climate.t_wohnzimmer
       - type: vertical-stack
         cards:
@@ -86,7 +89,7 @@ views:
         entity:  light.schlafzimmer_licht
       - type: media-control
         entity: media_player.schlafzimmer
-      - type: thermostat
+      - type: custom:simple-thermosta
         entity: climate.t_schlafzimmer
       - type: entities
         entities:
@@ -110,7 +113,7 @@ views:
     cards:
       - type: light
         entity:  light.kuche_licht
-      - type: thermostat
+      - type: custom:simple-thermosta
         entity: climate.t_kueche
       - type: entities
         entities:
@@ -122,7 +125,7 @@ views:
           - sensor.luftdruck_kueche
   - title: Bad
     cards:
-      - type: thermostat
+      - type: custom:simple-thermosta
         entity: climate.t_bad
       - type: entities
         entities:
