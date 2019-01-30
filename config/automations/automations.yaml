@@ -22,3 +22,19 @@
     - condition: state
       entity_id: sun.sun
       state: 'below_horizon'
+- alias: Fernbedienung an
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.zha_04f21344_1
+      to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: group.all_lights
+- alias: Fernbedienung aus
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.zha_04f21344_1
+      to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: group.all_lights
