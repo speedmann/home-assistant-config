@@ -1,21 +1,83 @@
-flur:
-  name: Flur
+heizung:
+  name: Heizung
   entities:
-    - light.philips_lct015_04163ef5_11
-    - binary_sensor.r_flur
+    - climate.t_schlafzimmer
+    - climate.t_wohnzimmer
+    - climate.t_kueche
+    - climate.t_bad
+
+licht:
+  name: Licht
+  entities:
+    - group.wohnzimmer_licht
+    - group.schlafzimmer_licht
+    - group.flur_licht
+    - group.kueche_licht
+
+flur:
+  name: Licht
+  entities:
+    - group.flur_sensoren
+    - group.flur_licht
+    - group.flur_geraete
+  
+wohnzimmer:
+  name: Wohnzimmer
+  entities:
+    - group.wohnzimmer_sensoren
+    - group.fwohnzimmer_licht
+    - group.wohnzimmer_geraete
+
 schlafzimmer:
   name: Schlafzimmer
+  entities:
+    - group.schlafzimmer_sensoren
+    - group.schlafzimmer_licht
+    - group.schlafzimmer_geraete
+
+bad:
+  name: Bad
+  entities:
+    - group.bad_sensoren
+    - group.bad_licht
+    - group.bad_geraete
+
+kueche:
+  name: Küche
+  entities:
+    - group.kueche_sensoren
+    - group.kueche_licht
+    - group.kueche_geraete
+
+flur_licht:
+  name: Flur Licht
+  entities:
+    - light.philips_lct015_04163ef5_11
+flur_sensoren:
+  name: Flur Sensoren
+  entities:
+    - binary_sensor.r_flur
+flur_geraete:
+
+schlafzimmer_licht:
+  name: Schlafzimmer Licht
   entities:
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_febffce9_1
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec06a91_1
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec36883_1
-    - climate.t_schlafzimmer
+schlafzimmer_sensoren:
+  name: Schlafzimmer Geräte
+  entities:
     - sensor.luftdruck_schlafzimmer
     - sensor.luftfeuchtigkeit_schlafzimmer
     - sensor.temperatur_schlafzimmer
     - binary_sensor.r_schlafzimmer
+schlafzimmer_geraete:
+  name: Schlafzimmer Geräte
+  entities:
     - media_player.schlafzimmer
-wohnzimmer:
+
+wohnzimmer_licht:
   name: Wohnzimmer Licht
   entities:
     - light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec20325_1
@@ -27,25 +89,36 @@ wohnzimmer_geraete:
     - switch.unterhaltung
     - media_player.wohnzimmer
     - remote.wohnzimmer
-    - climate.t_wohnzimmer
+    - media_player.panasonic_viera_tv
+wohnzimmer_sensoren:
+  name: Wohnzimmer
+  entities:
     - binary_sensor.f_wohnzimmer
     - sensor.luftdruck_wohnzimmer
     - sensor.luftfeuchtigkeit_wohnzimmer
     - sensor.temperatur_wohnzimmer
     - binary_sensor.r_wohnzimmer
-    - media_player.panasonic_viera_tv
-kueche:
-  name: Küche
+
+kueche_licht:
+  name: Küche Licht
   entities:
-    - climate.t_kueche
+    - light.philips_lst002_04499287_11
+kueche_geraete:
+  name: Küche Geräte
+  entities:
     - switch.waschmaschine
-    - sensor.luftdruck_küche
-    - sensor.luftfeuchtigkeit_küche
-    - sensor.temperatur_küche
-bad:
-  name: Bad
+kueche_sensoren:
+  name: Küche Sensoren
   entities:
-    - climate.t_bad
+    - sensor.luftdruck_kueche
+    - sensor.luftfeuchtigkeit_kueche
+    - sensor.temperatur_kueche
+
+bad_geraete:
+bad_licht:
+bad_sensoren:
+  name: Bad Sensoren
+  entities:
     - sensor.luftdruck_bad
     - sensor.luftfeuchtigkeit_bad
     - sensor.temperatur_bad

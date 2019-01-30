@@ -21,6 +21,7 @@ logger:
 
 device_sun_light_trigger:
   device_group: group.sebastian
+  light_group: group.all_lights
 
 proximity:
   home: 
