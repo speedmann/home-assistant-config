@@ -119,17 +119,17 @@ zha:
 homematic:
   interfaces:
     rf:
-      host: 192.168.113.104
+      host: homematic-raspi.swapoff.de
       resolvenames: xml
     ip:
-      host: 192.168.113.104
+      host: homematic-raspi.swapoff.de
       port: 2010
       resolvenames: xml
 
 remote:
   - platform: harmony
     name: Wohnzimmer
-    host: 192.168.113.40 #HarmonyHub.swapoff.de
+    host: harmony.swapoff.de
 
 google_assistant:
   project_id: !secret google_project
@@ -139,10 +139,6 @@ google_assistant:
     - switch
     - light
     - climate
-
-media_player:
-  - platform: panasonic_viera
-    host: 192.168.113.42
 
 light:
   - platform: group
