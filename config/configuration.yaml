@@ -139,6 +139,23 @@ google_assistant:
     - switch
     - light
     - climate
+  entity_config:
+    light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec20325_1:
+      expose: false
+    light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec301bb_1:
+      expose: false
+    light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fee4553f_1:
+      expose: false
+    light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_febffce9_1:
+      expose: false
+    light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec06a91_1:
+      expose: false
+    light.ikea_of_sweden_tradfri_bulb_gu10_ws_400lm_fec36883_1:
+      expose: false
+    light.philips_lct015_04163ef5_11:
+      expose: false
+    light.philips_lst002_04499287_11:
+      expose: false
 
 light:
   - platform: group
