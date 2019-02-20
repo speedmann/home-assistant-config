@@ -117,10 +117,14 @@ homematic:
     rf:
       host: homematic-raspi.swapoff.de
       resolvenames: json
+      username: homeassistant
+      password: !secret homematic_password
     ip:
       host: homematic-raspi.swapoff.de
       port: 2010
       resolvenames: json
+      username: homeassistant
+      password: !secret homematic_password
 
 remote:
   - platform: harmony
