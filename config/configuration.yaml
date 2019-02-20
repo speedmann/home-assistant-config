@@ -19,10 +19,6 @@ updater:
 logger:
   default: info
 
-device_sun_light_trigger:
-  device_group: group.sebastian
-  light_group: group.all_lights
-
 proximity:
   home: 
     devices:
@@ -78,7 +74,7 @@ homekit:
 
 cast:
   media_player:
-  - host: 192.168.113.18
+  - host: 192.168.200.106
   - host: 192.168.113.43
 
 device_tracker:
@@ -120,11 +116,11 @@ homematic:
   interfaces:
     rf:
       host: homematic-raspi.swapoff.de
-      resolvenames: xml
+      resolvenames: json
     ip:
       host: homematic-raspi.swapoff.de
       port: 2010
-      resolvenames: xml
+      resolvenames: json
 
 remote:
   - platform: harmony
@@ -190,3 +186,10 @@ script:
         service: script.turn_on
         data:
           entity_id: script.flur_an
+
+googlehome:
+  devices:
+    - host: 192.168.200.104
+      track_alarms: true
+    - host: 192.168.200.107
+      track_alarms: true
