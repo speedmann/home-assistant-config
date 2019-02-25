@@ -1,3 +1,8 @@
+- platform: time_date
+  display_options:
+    - 'date'
+    - 'time'
+    - 'time_utc'
 - platform: iperf3
   host: iperf.he.net
   monitored_conditions:

@@ -1,0 +1,28 @@
+- alias: 'Wecker wohnzimmer'
+  trigger:
+    platform: template
+    value_template: >
+            {%- if states.sensor.wohnzimmer_2_alarm.state.split('T')[0] == states.sensor.date.state and '{}:{}'.format(*states.sensor.wohnzimmer_2_alarm.state.split('T')[1].split('+')[0].split(':')[:-1]) == states.sensor.time_utc.state -%}True
+            {%- else -%}
+            False
+            {%- endif -%}
+  action:
+    - service: light.turn_on
+      entity_id: light.wohnzimmer_licht
+      data_template:
+        transition: 60
+        brightness: 255
+- alias: 'Wecker schlafzimmer'
+  trigger:
+    platform: template
+    value_template: >
+            {%- if states.sensor.schlafzimmer_2_alarm.state.split('T')[0] == states.sensor.date.state and '{}:{}'.format(*states.sensor.schlafzimmer_2_alarm.state.split('T')[1].split('+')[0].split(':')[:-1]) == states.sensor.time_utc.state -%}True
+            {%- else -%}
+            False
+            {%- endif -%}
+  action:
+    - service: light.turn_on
+      entity_id: light.schlafzimmer_licht
+      data_template:
+        transition: 60
+        brightness: 255
