@@ -17,14 +17,6 @@ views:
           entity: climate.t_bad
         - type: custom:simple-thermostat
           entity: climate.t_kueche
-      - type: vertical-stack
-        cards:
-        - type: iframe
-          url: https://grafana.swapoff.de/d-solo/0ZcA2Ixik/home-assistant?refresh=10s&orgId=1&panelId=5&from=1548802800000&to=1548874552410&theme=light
-        - type: iframe
-          url: https://grafana.swapoff.de/d-solo/0ZcA2Ixik/home-assistant?refresh=10s&orgId=1&panelId=1&from=1548802800000&to=1548876684098&theme=light
-        - type: iframe
-          url: https://grafana.swapoff.de/d-solo/0ZcA2Ixik/home-assistant?refresh=10s&orgId=1&panelId=4&from=1548802800000&to=1548876713933&theme=light
       - type: entity-filter
         entities:
           - light.wohnzimmer_licht
@@ -55,6 +47,12 @@ views:
         state_filter:
           - "on"
         show_empty: false
+      - type: entity
+        entities:
+          - sensor.wohnzimmer_2_alarm
+          - sensor.schlafzimmer_2_alarm
+          - sensor.wohnzimmer_2_timer
+          - sensor.schlafzimmer_2_timer
 
   - title: Wohnzimmer
     cards:
